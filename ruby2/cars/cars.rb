@@ -1,6 +1,6 @@
 class Car
 	@@total_car_count = 0
-	@@cars_per_color = {}
+	@@cars_per_color = {} # keys are color abd value are count of that colot
 
 	# this is a class level method to access a class level variable
     def self.total_car_count
@@ -9,7 +9,7 @@ class Car
 
     def self.most_popular_color
     	
-    	@@cars_per_color.sort_by { |col, cnt| cnt }.reverse[0].first
+    	@@cars_per_color.sort_by { |color, cnt| cnt }.reverse[0].first
 
 #     	maxim =0
 #     	popular = ""
@@ -61,6 +61,22 @@ class Car
 		puts "You must pay $#{3.5 * gallons_needed}"
 		@fuel = 10.0
 	end
+end
+
+class ConvertibleCar < Car
+
+	def intitalize
+		@roof_status = "closed"
+	end
+
+	def top_down
+		@roof_status = "down"
+	end
+
+	def close_top
+		@roof_status = "closed"
+	end
+
 end
 
 car_a = Car.new()
